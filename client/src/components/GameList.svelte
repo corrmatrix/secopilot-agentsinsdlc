@@ -7,6 +7,7 @@
         description: string;
         publisher_name?: string;
         category_name?: string;
+        starRating: number | null;
     }
 
     export let games: Game[] = [];
@@ -97,7 +98,11 @@
                             {/if}
                             
                             <p class="text-slate-400 mb-4 text-sm line-clamp-2" data-testid="game-description">{game.description}</p>
-                            
+
+                            <p class="text-sm text-yellow-400" data-testid="game-rating">
+                                {game.starRating !== null ? `★ ${game.starRating}/5` : "No rating yet"}
+                            </p>
+                             
                             <div class="mt-4 text-sm text-blue-400 font-medium flex items-center">
                                 <span>View details</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transform transition-transform duration-300 group-hover:translate-x-2" viewBox="0 0 20 20" fill="currentColor">
